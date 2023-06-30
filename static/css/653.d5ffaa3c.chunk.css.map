@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/653.d5ffaa3c.chunk.css","mappings":"AAAA,qBAEE,oBAAuB,CADvB,WAEF,CACA,sBACE,wBAAoC,CACpC,eACF","sources":["components/Movies/Movies.module.css"],"sourcesContent":[".input {\n  width: 300px;\n  border-color: lightgrey;\n}\n.button {\n  background-color: rgb(158, 154, 154);\n  padding: 2px 5px;\n}"],"names":[],"sourceRoot":""}
