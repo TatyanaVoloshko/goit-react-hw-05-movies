@@ -1,0 +1,8 @@
+.input {
+  width: 300px;
+  border-color: lightgrey;
+}
+.button {
+  background-color: rgb(158, 154, 154);
+  padding: 2px 5px;
+}

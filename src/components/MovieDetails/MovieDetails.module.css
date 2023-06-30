@@ -1,0 +1,9 @@
+.img {
+    display: block;
+  }
+  .wrapper {
+    display: flex;
+  }
+  .list {
+    list-style: none;
+  }
