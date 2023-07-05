@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/135.d552898a.chunk.css","mappings":"AAAA,yBACI,aAAc,CACd,WACF,CACA,6BACE,YACF,CACA,0BACE,eACF","sources":["pages/MovieDetails/MovieDetails.module.css"],"sourcesContent":[".img {\n    display: block;\n    width: 360px;\n  }\n  .wrapper {\n    display: flex;\n  }\n  .list {\n    list-style: none;\n  }"],"names":[],"sourceRoot":""}
