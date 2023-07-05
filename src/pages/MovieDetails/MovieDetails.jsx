@@ -11,6 +11,8 @@ import css from './MovieDetails.module.css';
 
 function MovieDetails() {
   const [movie, setMovie] = useState({});
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(null);
   const [year, setYear] = useState();
   const { movieId } = useParams();
   const { backdrop_path, id, title, overview, genres } = movie;
@@ -18,23 +20,30 @@ function MovieDetails() {
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from || '/';
+  const defaultImg = 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png'
 
   const btnBack = useCallback(() => navigate(from), [from, navigate]);
   useEffect(() => {
     const fetchMovie = async () => {
+      setIsLoading(true);
       try {
         const chosenMovie = await getMovieById(movieId);
         setMovie(chosenMovie.data);
         const date = chosenMovie.data.release_date.slice(0, 4);
         setYear(date);
-      } catch ({ response }) {
-        console.log(response.data.message);
+      } catch (error){
+        setError(error.message);
+      } 
+      finally {
+        setIsLoading(false);
       }
     };
     fetchMovie();
   }, [movieId]);
   return (
     <>
+    {error && <p>Oops...Somesing went wrong...</p>}
+      {isLoading && <p>Loading...</p>}
       <button className={css.btn} onClick={btnBack}>
         Go back
       </button>
@@ -42,7 +51,7 @@ function MovieDetails() {
         <img
           className={css.img}
           alt={title}
-          src={backdrop_path ? `https://image.tmdb.org/t/p/w500${backdrop_path}` : ''}
+          src={backdrop_path ? `https://image.tmdb.org/t/p/w500${backdrop_path}` : defaultImg}
         />
         <ul className={css.list}>
           <li>
